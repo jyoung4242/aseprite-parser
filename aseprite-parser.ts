@@ -218,11 +218,11 @@ export class AsepriteParser {
       return tempArray;
     } else {
       let tempArray: Array<number> = [];
-      console.log(from, to);
+      //console.log(from, to);
       for (let index = from; index <= to; index++) {
         tempArray.push(index);
       }
-      console.log(tempArray);
+      //console.log(tempArray);
       const tempImage = await this._makeSpriteSheet(tempArray, 1, tempArray.length);
       return tempImage;
     }
@@ -400,17 +400,17 @@ export class AsepriteParser {
     let tempImage = new Image(ssWidth, ssHeight);
     let imageIndex = 0;
     if (frames === "all") {
-      console.log(this.header?.frameCount);
+      //console.log(this.header?.frameCount);
 
       if (this.header)
-        for (let index = 0; index <= this.header?.frameCount; index++) {
-          console.log("loop index: ", index);
+        for (let index = 0; index < this.header?.frameCount; index++) {
+          //console.log("loop index: ", index);
           tempFrames.push(index);
         }
     } else {
       tempFrames = [...frames];
     }
-    console.log(tempFrames);
+    //console.log(tempFrames);
 
     tempFrames.forEach(frame => {
       colIndex = imageIndex % cols;
