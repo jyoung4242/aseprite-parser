@@ -1,6 +1,6 @@
 import { inflate } from "pako";
 
-/* Aseprite-parser.ts - 6/30/2023 - version 1.0.0
+/* Aseprite-parser.ts - 6/30/2023 - version 1.0.8
 Author: Justin Young
 
 exported types:

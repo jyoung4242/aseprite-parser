@@ -111,7 +111,7 @@ export interface AsepriteTag {
 
 ```ts
 export interface SpriteSheetOptions {
-  frames: Array<number>;
+  frames: Array<number> | "all"; // 'all' has been added to imrove dev experience
   rows: number;
   cols: number;
 }
