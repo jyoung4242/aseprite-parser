@@ -400,13 +400,18 @@ export class AsepriteParser {
     let tempImage = new Image(ssWidth, ssHeight);
     let imageIndex = 0;
     if (frames === "all") {
+      console.log(this.header?.frameCount);
+
       if (this.header)
         for (let index = 0; index <= this.header?.frameCount; index++) {
+          console.log("loop index: ", index);
           tempFrames.push(index);
         }
     } else {
       tempFrames = [...frames];
     }
+    console.log(tempFrames);
+
     tempFrames.forEach(frame => {
       colIndex = imageIndex % cols;
       rowIndex = Math.floor(imageIndex / cols);
