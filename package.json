@@ -1,14 +1,15 @@
 {
   "name": "aseprite-parser",
   "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "a simple npm package that allows users to pass the _.ase or _.aseprite file, and can pull images, animations, and spritesheets out",
+  "main": "aseprite-parser.js",
+  "types": "aseprite-parser.d.ts",
   "scripts": {
     "build": "tsc"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Justin Young",
+  "license": "MIT",
   "devDependencies": {
     "@types/pako": "^2.0.0",
     "typescript": "^5.1.6"
