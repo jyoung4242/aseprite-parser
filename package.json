@@ -4,6 +4,10 @@
   "description": "a simple npm package that allows users to pass the _.ase or _.aseprite file, and can pull images, animations, and spritesheets out",
   "main": "aseprite-parser.js",
   "types": "aseprite-parser.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jyoung4242/aseprite-parser"
+  },
   "scripts": {
     "build": "tsc"
   },
