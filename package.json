@@ -1,6 +1,6 @@
 {
   "name": "aseprite-parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a simple npm package that allows users to pass the _.ase or _.aseprite file, and can pull images, animations, and spritesheets out",
   "main": "aseprite-parser.js",
   "types": "aseprite-parser.d.ts",
