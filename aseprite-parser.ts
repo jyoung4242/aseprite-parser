@@ -63,7 +63,7 @@ export interface SpriteSheetOptions {
   /**
    * Frames: Array<number>
    */
-  frames: Array<number>;
+  frames: Array<number> | "all";
   /**
    *rows: number - number of rows in spritesheet
    */
@@ -382,8 +382,9 @@ export class AsepriteParser {
     return `#${hexR}${hexG}${hexB}${hexA}`;
   }
 
-  private async _makeSpriteSheet(frames: Array<number>, rows: number, cols: number): Promise<HTMLImageElement> {
+  private async _makeSpriteSheet(frames: Array<number> | "all", rows: number, cols: number): Promise<HTMLImageElement> {
     if (!this.loaded) throw new Error("Aseprite file not loaded");
+    let tempFrames = [];
     let rowIndex = 0;
     let colIndex = 0;
     let ssWidth = 0;
@@ -398,7 +399,15 @@ export class AsepriteParser {
     let tempCtx = tempCanvas.getContext("2d");
     let tempImage = new Image(ssWidth, ssHeight);
     let imageIndex = 0;
-    frames.forEach(frame => {
+    if (frames === "all") {
+      if (this.header)
+        for (let index = 0; index <= this.header?.frameCount; index++) {
+          tempFrames.push(index);
+        }
+    } else {
+      tempFrames = [...frames];
+    }
+    tempFrames.forEach(frame => {
       colIndex = imageIndex % cols;
       rowIndex = Math.floor(imageIndex / cols);
       let drawX, drawY;
@@ -409,6 +418,7 @@ export class AsepriteParser {
       tempCtx?.drawImage(this.frames[frame].image, drawX as number, drawY as number);
       imageIndex++;
     });
+
     await this._asyncLoadImageSrc(tempImage, tempCanvas.toDataURL());
     return tempImage;
   }
